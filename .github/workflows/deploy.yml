@@ -1,4 +1,4 @@
-name: Deploy to AWS
+name: Deploy
 
 on:
   push:
@@ -7,20 +7,9 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-
+    runs-on: self-hosted
     steps:
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@master
-
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-
-          script: |
-            cd ~/Havera-project
-            git pull
-            npm install
-            npm run build
-            pm2 restart havera
+      - name: Deploy app
+        run: |
+          cd ~/Havera-project
+          ./deploy.sh
