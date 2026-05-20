@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Search, SlidersHorizontal, X } from 'lucide-react'
 import { Navbar } from '@/components/navbar'
@@ -18,7 +18,7 @@ const categories = [
   { id: 'Custom', name: 'Custom' },
 ]
 
-export default function ProductsPage() {
+function ProductsContent() {
   const searchParams = useSearchParams()
   const initialCategory = searchParams.get('category') || 'all'
   
@@ -204,5 +204,21 @@ export default function ProductsPage() {
 
       <Footer />
     </main>
+  )
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={
+      <main className="min-h-screen bg-background flex flex-col justify-between">
+        <Navbar />
+        <div className="flex-grow flex items-center justify-center py-32">
+          <div className="animate-pulse text-lg font-serif">Loading Collection...</div>
+        </div>
+        <Footer />
+      </main>
+    }>
+      <ProductsContent />
+    </Suspense>
   )
 }

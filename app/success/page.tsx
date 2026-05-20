@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { Navbar } from '@/components/navbar'
@@ -8,7 +8,7 @@ import { Footer } from '@/components/footer'
 import { useCart } from '@/components/cart-context'
 import { ShoppingBag } from 'lucide-react'
 
-export default function SuccessPage() {
+function SuccessPageContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const { clearCart } = useCart()
@@ -101,5 +101,21 @@ export default function SuccessPage() {
       </section>
       <Footer />
     </main>
+  )
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={
+      <main className="min-h-screen bg-background flex flex-col justify-between">
+        <Navbar />
+        <div className="flex-grow flex items-center justify-center py-32">
+          <div className="animate-pulse text-lg font-serif">Verifying your payment...</div>
+        </div>
+        <Footer />
+      </main>
+    }>
+      <SuccessPageContent />
+    </Suspense>
   )
 }
