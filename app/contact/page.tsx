@@ -115,7 +115,7 @@ export default function ContactPage() {
 
                 {/* Phone */}
                 <a
-                  href="tel:+610451048915"
+                  href="tel:+61451048915"
                   className="flex items-center gap-4 p-5 bg-card rounded-2xl hover:bg-secondary/50 transition-colors border border-border"
                 >
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
@@ -123,7 +123,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-medium text-foreground">Phone</p>
-                    <p className="text-muted-foreground text-sm">+61 045 104 8915</p>
+                    <p className="text-muted-foreground text-sm">+61 451 048 915</p>
                   </div>
                 </a>
 

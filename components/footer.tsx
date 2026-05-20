@@ -45,7 +45,7 @@ export function Footer() {
                 <Youtube className="w-5 h-5 text-gold" />
               </a>
               <a
-                href="mailto:havera1611@gmail.com"
+                href="mailto:haveracandels1104@gmail.com"
                 className="p-2 bg-gold/10 hover:bg-gold/20 rounded-full transition-colors"
                 aria-label="Email"
               >
