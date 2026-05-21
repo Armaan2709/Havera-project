@@ -15,6 +15,8 @@ export async function POST(request: Request) {
 
     const totalAmount = cart.reduce((sum: number, item: any) => sum + item.price * item.quantity, 0);
 
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: 'payment',
@@ -34,8 +36,8 @@ export async function POST(request: Request) {
         user_email: email,
         total: totalAmount.toString(),
       },
-      success_url: 'http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}',
-      cancel_url: 'http://localhost:3000/cart',
+      success_url: `${baseUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${baseUrl}/cart`,
     });
 
     return NextResponse.json({ url: session.url });
