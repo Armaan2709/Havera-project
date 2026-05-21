@@ -46,11 +46,11 @@ export function Navbar() {
           : "bg-transparent"
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-3xl font-serif font-light tracking-wider text-ivory">
+          <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+            <span className="text-2xl sm:text-3xl font-serif font-light tracking-wider text-ivory">
               Havera
             </span>
           </Link>
@@ -69,12 +69,12 @@ export function Navbar() {
           </div>
 
           {/* Cart, Auth & Mobile Menu */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
             <Link
               href="/cart"
               className="relative p-2 hover:text-gold transition-colors duration-300"
             >
-              <ShoppingBag className="w-6 h-6 text-ivory/70 group-hover:text-gold" />
+              <ShoppingBag className="w-5 h-5 sm:w-6 sm:h-6 text-ivory/70 group-hover:text-gold" />
               {cartCount > 0 && (
                 <span className="absolute -top-1 -right-1 w-5 h-5 bg-gold text-black text-xs rounded-full flex items-center justify-center font-light">
                   {cartCount}
@@ -137,9 +137,9 @@ export function Navbar() {
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6 text-foreground/80" />
+                <X className="w-5 h-5 sm:w-6 sm:h-6 text-foreground/80" />
               ) : (
-                <Menu className="w-6 h-6 text-foreground/80" />
+                <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-foreground/80" />
               )}
             </button>
           </div>

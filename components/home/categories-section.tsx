@@ -30,7 +30,7 @@ const categories = [
 
 export function CategoriesSection() {
   return (
-    <section className="py-24 px-6 bg-beige">
+    <section className="py-24 px-5 sm:px-6 bg-beige">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">

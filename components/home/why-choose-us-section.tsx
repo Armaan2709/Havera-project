@@ -25,7 +25,7 @@ const features = [
 
 export function WhyChooseUsSection() {
   return (
-    <section className="py-24 px-6 bg-black relative overflow-hidden">
+    <section className="py-24 px-5 sm:px-6 bg-black relative overflow-hidden">
       {/* Subtle Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/5 rounded-full blur-3xl" />
 
