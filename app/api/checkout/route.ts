@@ -15,7 +15,8 @@ export async function POST(request: Request) {
 
     const totalAmount = cart.reduce((sum: number, item: any) => sum + item.price * item.quantity, 0);
 
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://havera1611.com';
+
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
